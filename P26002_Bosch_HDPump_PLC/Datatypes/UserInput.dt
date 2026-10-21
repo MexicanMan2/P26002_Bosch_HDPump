@@ -1,0 +1,9 @@
+TYPE UserInput :
+	STRUCT
+		OperationModeReq : BOOL := FALSE; (* TRUE to switch to Automatic Operation Mode *)
+		StandbyModeReq : BOOL := FALSE; (* TRUE to switch to Standby Mode *)
+		reset_Error_byUser : BOOL := FALSE; (* Trigger to reset the Safety Modul in Error State *)
+		EmgStop_Req_byUser: BOOL := FALSE; (* Trigger a EmgStop by Software manually *)
+		
+	END_STRUCT
+END_TYPE

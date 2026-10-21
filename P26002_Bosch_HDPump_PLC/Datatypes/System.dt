@@ -1,0 +1,51 @@
+TYPE System :
+	STRUCT
+		state : state_system := 0; (* 0: Standby, 1: Error/Alarm, 2: Automatic Busy, 3: Automatic Settled/Ready, 4: Manual*)
+		is_init : BOOL := FALSE; 
+		status_msg :  STRING(255);
+		warning : BOOL;
+		error : BOOL;
+		alarm : BOOL;
+		
+		(* Meldetexte für Frontend in alarms.json gespeichert *)
+		ALARM_SAI_DiagnosticError : BOOL := FALSE;
+		ALARM_GASALARM_H2_ST_STBQ2: BOOL := FALSE;
+		ALARM_VORALARM_H2_CT_STBQ1: BOOL := FALSE; (* Trigger Error Shutdown *)
+		ALARM_GASALARM_H2_CT_STBQ1: BOOL := FALSE;
+		ALARM_NotAusTaster_1_STFS1: BOOL := FALSE; 
+		ALARM_NotAusTaster_2_BPSF1 : BOOL := FALSE;
+		ALARM_EmgStop_bySoftware_activated : BOOL := FALSE;
+		ALARM_N2Supply_STBP1 : BOOL := FALSE;
+		ALARM_HeaterLimit_T_STBT1 : BOOL := FALSE;
+		ALARM_HeaterLimit_T_STBT2 : BOOL := FALSE;
+		ALARM_NotAusTaster_1_STFS1_Discrepancy: BOOL := FALSE;
+		ALARM_NotAusTaster_2_BPSF1_Discrepancy: BOOL := FALSE;
+		ALARM_QA1_Discrepancy: BOOL := FALSE;
+		ALARM_QA2_Discrepancy: BOOL := FALSE;
+		ALARM_Draeger_Fault: BOOL := FALSE;
+		WARNING_VORALARM_H2_CT_STBQ1: BOOL := FALSE;
+		WARNING_SVreq_H2_OutOfRange: BOOL := FALSE; (* reset to previous accepted SV *)
+		WARNING_SVreq_REF_OutOfRange: BOOL := FALSE; (* reset to previous accepted SV *)
+		WARNING_SVreq_O2_OutOfRange: BOOL := FALSE; (* reset to previous accepted SV *)
+		WARNING_SVreq_AIR_OutOfRange: BOOL := FALSE; (* reset to previous accepted SV *)
+		WARNING_SVreq_N2Anode_OutOfRange: BOOL := FALSE; (* reset to previous accepted SV *)
+		WARNING_SVreq_N2Cathode_OutOfRange: BOOL := FALSE; (* reset to previous accepted SV *)
+		Error_H2_flow_cannot_be_maintained : BOOL := FALSE;(* Trigger Error Shutdown *)
+		Error_REF_flow_cannot_be_maintained : BOOL := FALSE; (* Trigger Error Shutdown *)
+		Error_N2an_flow_cannot_be_maintained : BOOL := FALSE; (* Trigger Error Shutdown *)
+		Error_N2ca_flow_cannot_be_maintained : BOOL := FALSE; (* Trigger Error Shutdown *)
+		Error_O2_flow_cannot_be_maintained : BOOL := FALSE; (* Trigger Error Shutdown *)
+		Error_Air_flow_cannot_be_maintained : BOOL := FALSE; (* Trigger Error Shutdown *)
+		Error_H2_flow_cannot_be_reached : BOOL := FALSE; (* Trigger Error Shutdown *)
+		Error_REF_flow_cannot_be_reached : BOOL := FALSE; (* Trigger Error Shutdown *)
+		Error_N2an_flow_cannot_be_reached : BOOL := FALSE; (* Trigger Error Shutdown *)
+		Error_N2ca_flow_cannot_be_reached : BOOL := FALSE; (* Trigger Error Shutdown *)
+		Error_O2_flow_cannot_be_reached : BOOL := FALSE; (* Trigger Error Shutdown *)
+		Error_Air_flow_cannot_be_reached : BOOL := FALSE; (* Trigger Error Shutdown *)
+		Error_CellTemp_cannot_be_reached : BOOL := FALSE; (* Trigger Error Shutdown *)
+		
+		AV_c_H2_CT_STBQ1 : REAL;
+		leakTestPassed : BOOL;
+		
+	END_STRUCT
+END_TYPE

@@ -1,0 +1,10 @@
+TYPE state_device : (
+		DV_INIT, (*einmalige Initialisierung; keine User-Aktion erlaubt; Übergang nur automatisch*)
+		DV_DISABLED, (* enable = FALSE; Regler aus; keine Stellbewegung; Sollwert = 0 oder ignoriert*)
+		DV_IDLE,
+		DV_SETTING_REQ, (* neuer Sollwert wurde akzeptiert; Plausibilität geprüft; Regler noch nicht aktiv gefahren*)
+		DV_CONTROLLING, (*Regler fährt aktiv; Sollwert noch nicht erreicht; Zeitüberwachung aktiv*)
+		DV_SETTLED, (* Sollwert erreicht; Regler stabil; SVreached = TRUE; ControlFunction aktiv*)
+		DV_ERROR (*Fehlerzustand, Regler ggf. gestoppt, explizite Quittierung nötig*)
+	) ;
+END_TYPE

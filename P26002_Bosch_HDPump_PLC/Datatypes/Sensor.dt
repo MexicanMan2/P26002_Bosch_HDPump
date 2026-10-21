@@ -1,0 +1,10 @@
+TYPE Sensor :
+	STRUCT
+		name	: STRING;
+		sensor	: STRING;
+		SN		: STRING;
+		value	: REAL;
+		unit	: STRING;
+		status_msg : STRING;		
+	END_STRUCT
+END_TYPE

@@ -1,3 +1,12 @@
 VAR_GLOBAL
+system : System;
+req_EmgStop_bySoftware : BOOL := FALSE;
+reset_EmgStop : BOOL := FALSE;
 
+User : User_InOut;
+
+END_VAR
+
+VAR_GLOBAL RETAIN
+	Retain_Settings : UserSettings;
 END_VAR

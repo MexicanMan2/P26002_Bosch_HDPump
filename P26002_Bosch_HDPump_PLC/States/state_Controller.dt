@@ -1,0 +1,11 @@
+TYPE state_Controller : (
+
+    CTL_INIT,            (* einmaliges Mapping *)
+    CTL_FORCE_DISABLED,  (* alles disabled *)
+    CTL_IDLE,            (* bereit, aber inaktiv *)
+    CTL_AUTOMATIC,       (* Automatik-Container *)
+    CTL_MANUAL,          (* Manuell-Container *)
+    CTL_ERROR            (* latched Error *)
+);
+
+END_TYPE

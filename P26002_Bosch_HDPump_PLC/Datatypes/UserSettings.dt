@@ -1,0 +1,26 @@
+TYPE UserSettings :
+	STRUCT
+		Toff : REAL := 30; (* Temperatur ab der, der CoolDown-Process als abgeschlossen gilt *)
+		N2Flush_flow : REAL := 100; (* N2 Fluss beim Spülen / CoolDown / WarmUp in ml/min *)
+		N2Flush_HoldTime : TIME := T#60s;
+		flush_and_pause : BOOL := FALSE;
+		TwarmUp : REAL := 120; (* Temperatur-Ziel für den WarmUp Process *)
+		CoolDown_TOtime: TIME := T#300s; (* Timeout Zeit den Soll-Gasdurchfluss zu erreichen *)
+		LeakTest_pressure : REAL := 300; (* Startdruck für LeckageTest in mbar(g) *)
+		LeakTest_StabilizeTime : TIME := T#30s;
+		LeakTest_HoldTime : TIME := T#3m;
+		LeakTest_pressure_drop : REAL := 5; (* in mbar - Druck darf um 10 mbar in der Haltezeit fallen *)
+		flow_tolerance : REAL := 1.0; (* 1% Messwert-Toleranz bei Durchflussmessung *)
+		p_up_tolerance : REAL := 1.0; (* 1% Messwert-Toleranz bei Durchflussmessung *)
+		p_down_tolerance : REAL := 1.0; (* 1% Messwert-Toleranz bei Durchflussmessung *)
+		T_tolerance : REAL := 2.0; (* 2% Messwert-Toleranz bei Temperaturmessung *)
+		mfc_av_timeout : TIME := T#120s;
+		mfc_sv_accept_timeout : TIME := T#10s;
+		heater_av_timeout : TIME := T#60s; (* Wobei Eigenschaft SVreached internen 10s ON/OFF Verzögerung hat *)
+		WarmUp_HeatRateLimit : REAL := 3; (* K/min *)
+		min_SVcurrent : REAL := 96; (*mA*)
+		default_heatRate : REAL := 3.0; (*K/min*)
+		CVMode_CathodeN2_Flow : REAL := 10; (*nml/min*)
+		CVMode_AnodeH2_Flow : REAL := 10; (*nml/min*)
+	END_STRUCT
+END_TYPE

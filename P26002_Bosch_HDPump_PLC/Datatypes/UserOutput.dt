@@ -1,0 +1,18 @@
+TYPE UserOutput :
+	STRUCT
+		SystemState : System; (*User Output für state : state_system := 0; (* 0: Standby, 1: Error/Alarm, 2: Automatic Busy, 3: Automatic Settled/Ready, 4: Manual*)*)
+		Ampel_rot : BOOL:= FALSE;
+		Ampel_rot_blink : BOOL:= FALSE;
+		Ampel_gelb : BOOL:= FALSE;
+		Ampel_gelb_blink : BOOL:= FALSE;
+		Ampel_gruen : BOOL:= FALSE;
+		Ampel_gruen_blink : BOOL:= FALSE;
+		Ampel_blau : BOOL:= FALSE;
+		Ampel_blau_blink : BOOL:= FALSE;
+		
+		
+		
+		
+		
+	END_STRUCT
+END_TYPE

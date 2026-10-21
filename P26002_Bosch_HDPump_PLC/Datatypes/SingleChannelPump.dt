@@ -1,0 +1,14 @@
+TYPE SingleChannelPump :
+	STRUCT
+		enable : BOOL := FALSE;
+		SVreq:	REAL;
+		auto: BOOL:= TRUE;
+		SV: REAL;
+		p_down: REAL;
+		power_out: REAL;
+		unit: STRING := 'ml/min';
+		name: STRING := '';
+		ErrMsg			: STRING(255);
+		StatusMsg		: STRING(255);
+	END_STRUCT
+END_TYPE

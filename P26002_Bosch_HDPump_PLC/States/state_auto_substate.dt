@@ -1,0 +1,7 @@
+TYPE state_auto_substate : (
+		AUT_DISABLED := 0,
+		AUT_WAIT_SV_ACCEPTED := 1,
+		AUT_WAIT_SV_SETTLED := 2,
+		AUT_RUNNING := 3
+	) ;
+END_TYPE

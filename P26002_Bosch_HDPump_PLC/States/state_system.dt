@@ -1,0 +1,8 @@
+TYPE state_system : (
+		SYS_STANDBY := 0,
+		SYS_ERROR := 1,
+		SYS_AUTO_BUSY := 2,
+		SYS_AUTO_READY := 3,
+		SYS_MANUAL := 4
+	) ;
+END_TYPE

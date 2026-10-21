@@ -1,0 +1,8 @@
+TYPE User_InOut :
+	STRUCT
+		Input : UserInput;
+		Output : UserOutput;
+		Settings: UserSettings;
+		
+	END_STRUCT
+END_TYPE

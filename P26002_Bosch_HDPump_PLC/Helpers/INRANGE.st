@@ -1,0 +1,18 @@
+FUNCTION INRANGE : BOOL
+VAR_INPUT
+Lower: REAL;
+Value: REAL;
+Upper: REAL;
+END_VAR
+
+VAR
+
+END_VAR
+
+IF Value >= Lower AND Value <= Upper THEN
+	INRANGE := TRUE;
+ELSE
+	INRANGE := FALSE;
+END_IF
+ 
+END_FUNCTION
