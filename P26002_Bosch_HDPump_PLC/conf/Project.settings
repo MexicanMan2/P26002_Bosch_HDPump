@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="ASCII"?>
+<projectsettings:ProjectSettingsType xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:projectsettings="http://www.bachmann.at/plc/configuration/projectsettings/1.0">
+  <memoryLayout globalMemorySize="61440" retainMemorySize="1024" maxPouCount="1024"/>
+  <flags mxCount="0" mbCount="0" mwCount="0" mdCount="0" mrCount="0" rdCount="0" gdCount="0"/>
+  <general errorTolerant="false" includeSdb="false" includeSourceFile="false">
+    <version major="0" minor="1" test="0" type="Alpha"/>
+  </general>
+  <retainVariables type="Restore"/>
+  <svi/>
+</projectsettings:ProjectSettingsType>

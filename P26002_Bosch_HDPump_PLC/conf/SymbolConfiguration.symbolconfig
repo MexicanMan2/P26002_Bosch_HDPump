@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="ASCII"?>
+<symbolconfig:symbol-table xmlns:symbolconfig="http://www.bachmann.at/plc/configuration/symbolconfig" gvlDefaultFlag="YYYYY" pouDefaultFlag="NNNNN" processImageDefaultFlag="NNNNN" libGvlDefaultFlag="NNNNN">
+  <symbolconfig:libs/>
+  <symbolconfig:processimage/>
+  <symbolconfig:pousAndGvls/>
+</symbolconfig:symbol-table>

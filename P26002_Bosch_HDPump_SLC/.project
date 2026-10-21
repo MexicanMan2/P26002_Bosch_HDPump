@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>P26002_Bosch_HDPump_SLC</name>
+	<comment></comment>
+	<projects>
+	</projects>
+	<buildSpec>
+		<buildCommand>
+			<name>at.bachmann.app.dev.safety.make.SafetyBuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+	</buildSpec>
+	<natures>
+		<nature>at.bachmann.app.dev.safety.SafetyProjectNature</nature>
+	</natures>
+</projectDescription>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xml>
+<content>
+<ProjectSettings modelClass="ProjectSettings" name="Einstellungen" version="V2.85 Release Branch: SolutionCenter/branches/_RELEASES/Release_2.85">
+<diagrams>
+<value>P26002_Bosch_HDPump_SLC.fbd</value>
+</diagrams>
+<cycleTime>10</cycleTime>
+<hardwareConfiguration>HWConfig.hc</hardwareConfiguration>
+<variableLists>
+<value>GlobalVariables.vc</value>
+</variableLists>
+<appName>P26002_B</appName>
+<appDescription>P26002_Bosch_HDPump_SLC</appDescription>
+<appVersion>V1.00.01 Alpha</appVersion>
+<standalone>false</standalone>
+<reportTitle>Safety Developer Projektreport</reportTitle>
+<reportDescription/>
+<reportImage/>
+<reportOrientation>portrait</reportOrientation>
+<modes>
+<mode default="true" description="Standard" mask="0x1"/>
+</modes>
+</ProjectSettings>
+</content>
+<checksum memoryRepresentation="UTF-8">3d20b873ddcb553e1d3a64875bc803af</checksum>
+</xml>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xml>
+<content>
+<FBDiagram modelClass="FBDiagram" name="P26002_Bosch_HDPump_SLC" version="V2.85 Release Branch: SolutionCenter/branches/_RELEASES/Release_2.85">
+<author>lukasweiss</author>
+<versionHistory/>
+<releaseDate>1792583847568</releaseDate>
+<functionalDescription/>
+<createDate>1792583847567</createDate>
+<version>V1.0.1 Alpha</version>
+<variables name="LOCAL"/>
+<blocks/>
+<notes/>
+<connections/>
+</FBDiagram>
+</content>
+<checksum memoryRepresentation="UTF-8">eef20d027b6e4a4d9100df4e9eb313f1</checksum>
+</xml>

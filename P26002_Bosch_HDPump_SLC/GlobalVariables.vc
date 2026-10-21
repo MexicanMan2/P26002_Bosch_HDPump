@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xml>
+<content>
+<VariablesConfiguration modelClass="VariablesConfiguration" name="GlobalVariables" version="V2.85 Release Branch: SolutionCenter/branches/_RELEASES/Release_2.85">
+<ModelComposite modelClass="ModelComposite" name="Global Variables" version="V2.85 Release Branch: SolutionCenter/branches/_RELEASES/Release_2.85"/>
+<ModelComposite modelClass="ModelComposite" name="SVI Variables" version="V2.85 Release Branch: SolutionCenter/branches/_RELEASES/Release_2.85"/>
+</VariablesConfiguration>
+</content>
+<checksum memoryRepresentation="UTF-8">1eb62ac2c507f8ef9c9c62497761cccb</checksum>
+</xml>
