@@ -1,0 +1,8 @@
+TYPE ST_OpcUaInterface :
+STRUCT
+    bTransferActive : BOOL := FALSE; (* PC meldet: Datenübertragung läuft *)
+    nPointsCount    : DINT := 0;     (* Anzahl gültiger Punkte im 10ms-Array *)
+    bDataReady      : BOOL := FALSE; (* PC meldet: Übertragung beendet *)
+    bProfileValid   : BOOL := FALSE; (* SPS meldet: Daten geprüft und bereit *)
+END_STRUCT
+END_TYPE

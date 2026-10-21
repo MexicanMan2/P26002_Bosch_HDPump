@@ -1,0 +1,8 @@
+TYPE ST_SineConfig :
+STRUCT
+    fRpmMin     : REAL := 500.0;    (* Minimale Drehzahl [U/min] *)
+    fRpmMax     : REAL := 3000.0;   (* Maximale Drehzahl [U/min] *)
+    tPeriod     : TIME := T#10s;    (* Periodendauer fuer eine volle 360° Schwingung *)
+    fPhaseDeg   : REAL := -90.0;    (* Phasenversatz in Grad [°] (-90° = Start bei fRpmMin, 0° = Start im Mittelwert) *)
+END_STRUCT
+END_TYPE

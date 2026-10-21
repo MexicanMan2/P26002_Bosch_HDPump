@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="ASCII"?>
+<TaskConfiguration:Task xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:TaskConfiguration="http://www.bachmann.info/TaskConfiguration" priority="84">
+  <type xsi:type="TaskConfiguration:CyclicType">
+    <interval value="1"/>
+    <ptp>
+      <interval/>
+    </ptp>
+  </type>
+  <watchdog>
+    <interval/>
+  </watchdog>
+  <programs>
+    <program href="#ref:PRG_RPM_Control_1ms"/>
+  </programs>
+</TaskConfiguration:Task>

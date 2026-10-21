@@ -1,0 +1,5 @@
+TYPE E_SequenceEndMode : (
+    MODE_LAP_COUNT  := 0,   (* Beenden nach N Laps *)
+    MODE_TIME_LIMIT := 1    (* Beenden nach Zeitdauer, z.B. 48h *)
+);
+END_TYPE

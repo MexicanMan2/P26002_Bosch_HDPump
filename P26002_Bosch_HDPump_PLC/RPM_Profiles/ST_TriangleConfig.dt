@@ -1,0 +1,9 @@
+TYPE ST_TriangleConfig :
+STRUCT
+    fRpmMin     : REAL := 500.0;    (* Min-Drehzahl [U/min] *)
+    fRpmMax     : REAL := 3000.0;   (* Max-Drehzahl [U/min] *)
+    tRampUp     : TIME := T#5s;     (* Steigzeit x-Sekunden *)
+    bSymmetric  : BOOL := TRUE;     (* TRUE: tRampDown = tRampUp *)
+    tRampDown   : TIME := T#5s;     (* Fallzeit y-Sekunden *)
+END_STRUCT
+END_TYPE

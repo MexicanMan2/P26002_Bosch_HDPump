@@ -1,0 +1,6 @@
+TYPE E_ProfileType : (
+    PROFILE_TRIANGLE    := 0,   (* Analytisches Dreiecksprofil *)
+    PROFILE_SINE        := 1,   (* Analytisches Sinusprofil mit Phasenversatz *)
+    PROFILE_ARRAY_10MS  := 2    (* Freies Profil aus OPC-UA-Array (10ms-Raster) *)
+);
+END_TYPE

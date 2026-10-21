@@ -1,0 +1,21 @@
+TYPE ST_CAN_Broker_Channel :
+STRUCT
+    (* Konfiguration *)
+    TxCobId     : UDINT := 16#300;      (* Sende-ID an den Sensor *)
+    RxCobId     : UDINT := 16#208;      (* Empfangs-ID vom Sensor *)
+    
+    (* Senden: Device -> Broker *)
+    TxReq       : BOOL := FALSE;        (* Sendeauftrag anfordern *)
+    TxData      : ARRAY [0..7] OF BYTE; (* Zu sendende Nutzdaten *)
+    
+    (* Sende-Quittierung: Broker -> Device *)
+    TxBusy      : BOOL := FALSE;        (* Telegramm wird gerade gesendet *)
+    TxDone      : BOOL := FALSE;        (* Telegramm erfolgreich auf den Bus gelegt *)
+    TxError     : BOOL := FALSE;        (* Fehler beim Senden *)
+    
+    (* Empfangen: Broker -> Device *)
+    RxNew       : BOOL := FALSE;        (* Neues Telegramm für diesen Sensor empfangen *)
+    RxData      : ARRAY [0..7] OF BYTE; (* Empfangene Nutzdaten *)
+    RxLen       : USINT := 0;           (* Länge der empfangenen Nachricht *)
+END_STRUCT
+END_TYPE
