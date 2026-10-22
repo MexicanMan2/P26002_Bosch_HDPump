@@ -44,8 +44,8 @@ VAR
     bLapSignal          : BOOL;
 
     (* --- I/O Mapping fuer Profibus-Master --- *)
-    q_Profibus_STW1     AT %Q* : WORD;
-    q_Profibus_NSOLL    AT %Q* : INT;
+(*     q_Profibus_STW1     AT %Q* : WORD; *)
+(*     q_Profibus_NSOLL    AT %Q* : INT; *)
 END_VAR
 
 (* 1. Profilberechnung je nach Auswahl *)
@@ -97,8 +97,8 @@ fbDrive(
     bEnable        := fbSeq.bSequenceActive,
     fRpmSetpoint   := fCurrentRpm,
     fReferenceRpm  := 3000.0,
-    nControlWord   => q_Profibus_STW1,
-    nSpeedSetpoint => q_Profibus_NSOLL
+(*     nControlWord   => q_Profibus_STW1, *)
+(*     nSpeedSetpoint => q_Profibus_NSOLL *)
 );
 
 END_PROGRAM

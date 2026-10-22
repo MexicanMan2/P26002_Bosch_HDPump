@@ -1,18 +1,6 @@
 PROGRAM MAIN
 
 (*
-[ ] Mapping MFC
-[ ] Mapping Heaters
-[x] Mapping Valves
-[x] Evaporators
-[x] Mapping Evaporators
-[x] Pump
-[x] Potentiostat
-[ ] Safety
-[x] Valves
-[ ] UserInOut / PanelStatusOutput
-[ ] UserSettings
-[x] CondensationColumn LevelManagement
 
 *)
 VAR
@@ -32,6 +20,8 @@ i : INT; (*Iteration Variable*)
 (* Reset Device Errors *)
 resetMfCError : BOOL;
 resetEvapError : BOOL;
+
+AutomaticOperation : FB_AutomaticOperation;
 
 END_VAR
 
@@ -67,7 +57,7 @@ system.state := next_state;
 						END_IF;
 						
 						IF User.Input.OperationModeReq THEN
-							next_state := SYS_MANUAL;
+							next_state := SYS_AUTO_READY;
 						END_IF
 						
 		SYS_ERROR :								
@@ -80,7 +70,22 @@ system.state := next_state;
 						
 						RETURN;
 		
-		SYS_AUTO_BUSY,SYS_AUTO_READY : next_state := SYS_STANDBY; (* Not defined *)
+		SYS_AUTO_BUSY,SYS_AUTO_READY :
+						
+						IF system.alarm OR system.error THEN
+							next_state := SYS_ERROR;
+							RETURN;
+						END_IF
+						
+						AutomaticOperation(
+						 Start	:= User.Input.start,
+						 Stop	:= User.Input.stop
+						);
+						
+						IF User.Input.StandbyModeReq THEN
+							next_state := SYS_STANDBY;
+							RETURN;
+						END_IF
 		
 		SYS_MANUAL :
 						

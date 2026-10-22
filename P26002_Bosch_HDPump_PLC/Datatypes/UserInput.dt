@@ -5,5 +5,12 @@ TYPE UserInput :
 		reset_Error_byUser : BOOL := FALSE; (* Trigger to reset the Safety Modul in Error State *)
 		EmgStop_Req_byUser: BOOL := FALSE; (* Trigger a EmgStop by Software manually *)
 		
+		(* Sequence Start/Stop Behavior*)
+		start : BOOL := FALSE; (* Start Sequence *)
+		cancel: BOOL := FALSE; (* Cancel Sequence *)
+		
+		(* Sequence Ending Behavior*)
+		skipOP: BOOL := FALSE; (* stop current Sequence and continue with next Sequence*)
+		continuous: BOOL := FALSE; (* Automatically continue with next Sequence *)
 	END_STRUCT
 END_TYPE

@@ -1,0 +1,14 @@
+TYPE state_op_manager : (
+		
+	OP_INIT,
+    OP_IDLE,
+    OP_PREP,
+    OP_EXECUTE,
+    OP_WAIT_SETTLED,
+    OP_HOLD,
+    OP_FINISHED,
+    OP_ERROR_SHUTDOWN,
+    OP_ERROR
+
+	) ;
+END_TYPE

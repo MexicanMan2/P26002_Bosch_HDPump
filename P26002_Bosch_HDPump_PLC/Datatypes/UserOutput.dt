@@ -10,7 +10,7 @@ TYPE UserOutput :
 		Ampel_blau : BOOL:= FALSE;
 		Ampel_blau_blink : BOOL:= FALSE;
 		
-		
+		operation_status_msg : STRING(255) := ''; (* Status Message for User *)
 		
 		
 		
