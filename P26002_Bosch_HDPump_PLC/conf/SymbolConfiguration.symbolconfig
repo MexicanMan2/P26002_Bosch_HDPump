@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="ASCII"?>
-<symbolconfig:symbol-table xmlns:symbolconfig="http://www.bachmann.at/plc/configuration/symbolconfig" gvlDefaultFlag="YYYYY" pouDefaultFlag="NNNNN" processImageDefaultFlag="NNNNN" libGvlDefaultFlag="NNNNN">
+<symbolconfig:symbol-table xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:symbolconfig="http://www.bachmann.at/plc/configuration/symbolconfig" gvlDefaultFlag="YYYYY" pouDefaultFlag="NNNNN" processImageDefaultFlag="NNNNN" libGvlDefaultFlag="NNNNN">
   <symbolconfig:libs/>
   <symbolconfig:processimage/>
-  <symbolconfig:pousAndGvls/>
+  <symbolconfig:pousAndGvls>
+    <children xsi:type="symbolconfig:gvl" flags="NNNNN" name="CAN_Signals"/>
+    <children xsi:type="symbolconfig:gvl" name="GlobalVariables">
+      <symbolconfig:variable flags="IIIYI" name="User"/>
+      <symbolconfig:variable flags="IIINI" name="OP_List"/>
+    </children>
+  </symbolconfig:pousAndGvls>
 </symbolconfig:symbol-table>

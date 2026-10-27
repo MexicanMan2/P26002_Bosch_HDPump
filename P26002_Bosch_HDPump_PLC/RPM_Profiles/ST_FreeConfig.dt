@@ -1,0 +1,8 @@
+TYPE ST_FreeConfig :
+	STRUCT
+		
+	    nPointsCount    : DINT := 0;     (* Anzahl gültiger Punkte im 10ms-Array *)
+	    LapData        : ARRAY[0..179999] OF REAL;
+		
+	END_STRUCT
+END_TYPE

@@ -99,58 +99,58 @@ VAR
     (* Kanal 12: Botschaft 16#910 (2320 dez) *)
     fb_w_RPM_Profile            : FB_CAN_Signal; (* RPM Profile (reserviert) *)
 
-    (* ======================================================================== *)
-    (* 4. Lokale Prozessvariablen für ALLE gelesenen Messwerte (Rx)             *)
-    (* ======================================================================== *)
-    rTecu_cpu                   : REAL; (* ID 16#456: ECU CPU Temperatur *)
-    rPrail_nom                  : REAL; (* ID 16#650: Fuel pressure HP - set point *)
-    rTfuel                      : REAL; (* ID 16#650: Fuel temperature HP *)
-    rToil                       : REAL; (* ID 16#650: Öltemperatur *)
-    rPrail_650                  : REAL; (* ID 16#650: Fuel pressure HP - side 1 *)
-    rMsv_divy_angle             : REAL; (* ID 16#660: MSV Förderwinkel *)
-    rAngle_eng_hdp              : REAL; (* ID 16#660: Motorwinkel HDP Messung *)
-    rTinj                       : REAL; (* ID 16#660: Einspritzdauer *)
-    rPrail_660                  : REAL; (* ID 16#660: Fuel pressure HP - side 2 *)
-    rTekp                       : REAL; (* ID 16#670: Fuel temp after low press pump *)
-    rPekp                       : REAL; (* ID 16#670: Fuel press after low press pump *)
-    rPfuel                      : REAL; (* ID 16#670: Kraftstoffdruck *)
-    rEngine_RPM                 : REAL; (* ID 16#680: Drehzahl / RPM *)
-
-    (* ======================================================================== *)
-    (* 5. Lokale Variablen für die zu SCHREIBENDEN Werte (Tx)                   *)
-    (* ======================================================================== *)
-    (* ID 16#700 *)
-    rWrite_Set_RPM              : REAL  := 2500.0;
-    rWrite_Actual_RPM           : REAL  := 2498.0;
-    bWrite_valid_RPM            : BOOL  := TRUE;
-
-    (* ID 16#710 *)
-    rWrite_Oil_pressure         : REAL  := 4.5;    (* bar *)
-    rWrite_Oil_temperature      : REAL  := 85.0;   (* °C *)
-    bWrite_Oil_pressure_OK      : BOOL  := TRUE;
-    bWrite_Oil_temperature_OK   : BOOL  := TRUE;
-
-    (* ID 16#720 *)
-    rWrite_Fuel_temperature     : REAL  := 25.0;   (* °C *)
-    rWrite_Fuel_supply_pressure : REAL  := 5.0;    (* bar *)
-    bWrite_Fuel_temperature_OK  : BOOL  := TRUE;
-    bWrite_Fuel_supply_press_OK : BOOL  := TRUE;
-
-    (* ID 16#730 *)
-    rWrite_Fuel_Mass_Flow_1     : REAL  := 12.5;   (* kg/h *)
-    rWrite_Fuel_Mass_Flow_2     : REAL  := 12.4;
-    rWrite_Fuel_Mass_Flow_3     : REAL  := 0.0;
-    bWrite_valid_Fuel_Mass_Flow : BOOL  := TRUE;
-
-    (* ID 16#800 *)
-    wWrite_ERROR_Bits           : WORD  := 16#0000;
-
-    (* ID 16#900 *)
-    nWrite_Counter_LAP          : USINT := 1;
-    nWrite_Counter_FREE_TRIGGER : USINT := 0;
-
-    (* ID 16#910 (reserviert) *)
-    wWrite_RPM_Profile          : WORD  := 16#0000;
+(*     (* ======================================================================== *) *)
+(*     (* 4. Lokale Prozessvariablen für ALLE gelesenen Messwerte (Rx)             *) *)
+(*     (* ======================================================================== *) *)
+(*     rTecu_cpu                   : REAL; (* ID 16#456: ECU CPU Temperatur *) *)
+(*     rPrail_nom                  : REAL; (* ID 16#650: Fuel pressure HP - set point *) *)
+(*     rTfuel                      : REAL; (* ID 16#650: Fuel temperature HP *) *)
+(*     rToil                       : REAL; (* ID 16#650: Öltemperatur *) *)
+(*     rPrail_650                  : REAL; (* ID 16#650: Fuel pressure HP - side 1 *) *)
+(*     rMsv_divy_angle             : REAL; (* ID 16#660: MSV Förderwinkel *) *)
+(*     rAngle_eng_hdp              : REAL; (* ID 16#660: Motorwinkel HDP Messung *) *)
+(*     rTinj                       : REAL; (* ID 16#660: Einspritzdauer *) *)
+(*     rPrail_660                  : REAL; (* ID 16#660: Fuel pressure HP - side 2 *) *)
+(*     rTekp                       : REAL; (* ID 16#670: Fuel temp after low press pump *) *)
+(*     rPekp                       : REAL; (* ID 16#670: Fuel press after low press pump *) *)
+(*     rPfuel                      : REAL; (* ID 16#670: Kraftstoffdruck *) *)
+(*     rEngine_RPM                 : REAL; (* ID 16#680: Drehzahl / RPM *) *)
+(*  *)
+(*     (* ======================================================================== *) *)
+(*     (* 5. Lokale Variablen für die zu SCHREIBENDEN Werte (Tx)                   *) *)
+(*     (* ======================================================================== *) *)
+(*     (* ID 16#700 *) *)
+(*     rWrite_Set_RPM              : REAL  := 2500.0; *)
+(*     rWrite_Actual_RPM           : REAL  := 2498.0; *)
+(*     bWrite_valid_RPM            : BOOL  := TRUE; *)
+(*  *)
+(*     (* ID 16#710 *) *)
+(*     rWrite_Oil_pressure         : REAL  := 4.5;    (* bar *) *)
+(*     rWrite_Oil_temperature      : REAL  := 85.0;   (* °C *) *)
+(*     bWrite_Oil_pressure_OK      : BOOL  := TRUE; *)
+(*     bWrite_Oil_temperature_OK   : BOOL  := TRUE; *)
+(*  *)
+(*     (* ID 16#720 *) *)
+(*     rWrite_Fuel_temperature     : REAL  := 25.0;   (* °C *) *)
+(*     rWrite_Fuel_supply_pressure : REAL  := 5.0;    (* bar *) *)
+(*     bWrite_Fuel_temperature_OK  : BOOL  := TRUE; *)
+(*     bWrite_Fuel_supply_press_OK : BOOL  := TRUE; *)
+(*  *)
+(*     (* ID 16#730 *) *)
+(*     rWrite_Fuel_Mass_Flow_1     : REAL  := 12.5;   (* kg/h *) *)
+(*     rWrite_Fuel_Mass_Flow_2     : REAL  := 12.4; *)
+(*     rWrite_Fuel_Mass_Flow_3     : REAL  := 0.0; *)
+(*     bWrite_valid_Fuel_Mass_Flow : BOOL  := TRUE; *)
+(*  *)
+(*     (* ID 16#800 *) *)
+(*     wWrite_ERROR_Bits           : WORD  := 16#0000; *)
+(*  *)
+(*     (* ID 16#900 *) *)
+(*     nWrite_Counter_LAP          : USINT := 1; *)
+(*     nWrite_Counter_FREE_TRIGGER : USINT := 0; *)
+(*  *)
+(*     (* ID 16#910 (reserviert) *) *)
+(*     wWrite_RPM_Profile          : WORD  := 16#0000; *)
 
     (* ======================================================================== *)
     (* 6. Sende-Steuerung (Zykluszähler für 10 ms Task -> 100 ms Takt)         *)

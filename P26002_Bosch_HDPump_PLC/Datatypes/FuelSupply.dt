@@ -1,0 +1,19 @@
+TYPE FuelSupply :
+	STRUCT
+		start:	BOOL;
+		stop:	BOOL;
+		enable: BOOL;
+		running: BOOL;
+		
+		SV				: REAL; (* Pressure in bar *)
+		SVreq			: REAL; (* Pressure in bar *)
+		AV				: REAL; (* Pressure in bar *)
+		SVaccepted           : BOOL := FALSE;           (* TRUE = Sollwert vom Thermostat übernommen *)
+		SVreached            : BOOL := FALSE;   
+		pressure_tolerance : REAL;			
+		
+		PID	: ARRAY [1..3] OF REAL;
+		setPID : BOOL;
+		pid_error : DINT;
+	END_STRUCT
+END_TYPE

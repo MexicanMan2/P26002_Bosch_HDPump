@@ -12,7 +12,8 @@ TYPE UserOutput :
 		
 		operation_status_msg : STRING(255) := ''; (* Status Message for User *)
 		
-		
+		nActualLaps: UDINT;
+		tActualTime: TIME;
 		
 	END_STRUCT
 END_TYPE

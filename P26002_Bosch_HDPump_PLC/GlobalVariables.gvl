@@ -4,7 +4,18 @@ req_EmgStop_bySoftware : BOOL := FALSE;
 reset_EmgStop : BOOL := FALSE;
 
 User : User_InOut;
+OP_List: ARRAY[0..10] OF OPoint;
 
+Thermostat : Thermostat;
+OilConditioning : OilConditioning;
+FuelSupply : FuelSupply;
+
+AutomaticOperation : FB_AutomaticOperation;
+fbThermostat: FB_Thermostat;
+fbOilConditionin: FB_OilConditioning;
+fbFuelSupply: FB_FuelSupply;
+
+HW_DI_ECU_RUNNING : BOOL; (* Kanal entsprechend benennen! *)
 END_VAR
 
 VAR_GLOBAL RETAIN

@@ -1,0 +1,22 @@
+TYPE ST_ProfileConfig :
+	STRUCT
+	
+		bTransferActive : BOOL := FALSE; (* PC meldet: Datenübertragung läuft *)
+		
+		(* Triangle Profile *)
+		TriangleConfig : ST_TriangleConfig;
+		
+		(* Sine Profile *)
+		SineConfig : ST_SineConfig;
+		
+		(* Free Profile *)
+		FreeConfig : ST_FreeConfig;
+		
+		eEndMode      : E_SequenceEndMode := MODE_TIME_LIMIT;
+		nLaps         : UDINT             := 1000;
+	    tDuration     : TIME              := T#48h;
+
+		bDataReady      : BOOL := FALSE; (* PC meldet: Übertragung beendet *)
+		bProfileValid   : BOOL := FALSE; (* SPS meldet: Daten geprüft und bereit *)
+	END_STRUCT
+END_TYPE
