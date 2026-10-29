@@ -1,0 +1,7 @@
+device name = "m200" {
+	address = "192.168.178.233";
+	port = 80;
+	timeout = 3;
+	rfs = true;
+	operatingSystem = "vxworks";
+}
