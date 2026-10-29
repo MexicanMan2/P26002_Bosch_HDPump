@@ -3,6 +3,5 @@ TYPE User_InOut :
 		Input : UserInput;
 		Output : UserOutput;
 		Settings: UserSettings;
-		
 	END_STRUCT
 END_TYPE

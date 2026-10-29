@@ -1,0 +1,20 @@
+TYPE OPoint :
+	STRUCT
+	
+		ID : STRING := ''; (* UUID des Operation Points *)
+		
+		ProfileType : E_ProfileType := PROFILE_TRIANGLE; (* Betriebspunkt Typ - siehe ENUM OP_type *)
+		ProfileConfig : ST_ProfileConfig;
+		
+		Oil_temperature: REAL;
+		Oil_pressure: REAL;
+		Fuel_temperature: REAL;
+		Fuel_supply_pressure: REAL;
+		
+		(* Bearbeitungsstatus *)
+		processed : BOOL := FALSE;
+		
+		(* Trigger *)
+		waitforTrigger : BOOL := FALSE;
+	END_STRUCT
+END_TYPE

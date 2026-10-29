@@ -1,0 +1,26 @@
+TYPE Thermostat :
+	STRUCT
+		enable               : BOOL := FALSE;           (* Freigabe der Ansteuerung *)
+		card_nb              : INT := 0;                (* Steckplatz (Slot) der RS232-Karte am Bachmann Rack *)
+		chan_nb              : INT := 1;                (* Kanalnummer der RS232-Schnittstelle (1 oder 2) *)
+		baud_rate            : DINT := 9600;            (* Baudrate (Huber Standard: 9600) *)
+		state                : state_device := DV_INIT; (* Aktueller Gerätestatus gemäß state_device.dt *)
+		reset                : BOOL := FALSE;           (* Trigger: Fehler quittieren & zurücksetzen *)
+		start                : BOOL := FALSE;           (* Temperierung/Umwälzung starten (Mode 'C') *)
+		stop                 : BOOL := FALSE;           (* Temperierung/Umwälzung stoppen (Mode 'O') *)
+		set_setpoint         : BOOL := FALSE;           (* Trigger: Neuen Sollwert an Thermostat senden *)
+		target_setpoint      : REAL := 20.0;            (* Sollwert-Vorgabe in °C (z.B. 25.5 °C) *)
+		act_setpoint         : REAL := 0.0;             (* Rückgelesener Sollwert vom Thermostat in °C *)
+		temp_internal        : REAL := 0.0;             (* Interner Istwert F1 in °C *)
+		temp_external        : REAL := 0.0;             (* Externer Istwert F2 in °C (-151.00 = nicht vorhanden) *)
+		sensor_ext_connected : BOOL := TRUE;            (* FALSE = Externer Fühler F2 nicht angeschlossen/defekt *)
+		control_active       : BOOL := FALSE;           (* TRUE = Temperierung/Umwälzung aktiv *)
+		SVaccepted           : BOOL := FALSE;           (* TRUE = Sollwert vom Thermostat übernommen *)
+		SVreached            : BOOL := FALSE;           (* TRUE = Sollwert innerhalb Toleranz erreicht *)
+		SV_tolerance         : REAL := 0.5;             (* Toleranzband in °C für SVreached *)
+		device_alarm         : BOOL := FALSE;           (* TRUE = Gerät meldet Alarmstatus ('1') *)
+		watchdog_error       : BOOL := FALSE;           (* TRUE = Watchdog Timeout aufgetreten *)
+		com_status           : STRING := 'disconnected';
+		com_ready            : BOOL := FALSE;
+	END_STRUCT
+END_TYPE

@@ -1,7 +1,13 @@
 PROGRAM MAIN
 
 (*
-
+[ ] OP_Execute
+[ ] OP_Finished
+[ ] FB_Thermostat
+[x] FB_OilConditioning
+[x] FB_FuelSupply
+[ ] VERIFY RPM
+[ ] VERIFY FLOW
 *)
 VAR
 next_state : state_system;
@@ -14,14 +20,14 @@ TriggerTime : TIME := T#1s;
 ResetTrigger : TP;
 StopTrigger : TP;
 ALARM_ARRAY: ARRAY [1..20] OF BOOL;
+a : INT; (* warnings iterative varibale *)
 WARNING_ARRAY: ARRAY [1..30] OF BOOL;
+w : INT; (* warnings iterative varibale *)
 i : INT; (*Iteration Variable*)
 
 (* Reset Device Errors *)
 resetMfCError : BOOL;
 resetEvapError : BOOL;
-
-AutomaticOperation : FB_AutomaticOperation;
 
 END_VAR
 
@@ -41,6 +47,10 @@ User.Settings := Retain_Settings;
 END_ACTION
 
 ACTION ACT_StateMachine
+
+(* Defaults *)
+AutomaticOperation.Enable := FALSE;
+AutomaticOperation.Reset := FALSE;
 
 system.state := next_state;
 
@@ -66,9 +76,9 @@ system.state := next_state;
 						IF  ResetTrigger.Q THEN
 							reset_EmgStop := TRUE;
 							User.Input.reset_Error_byUser := FALSE;
+							AutomaticOperation.Enable := TRUE;
 						END_IF
 						
-						RETURN;
 		
 		SYS_AUTO_BUSY,SYS_AUTO_READY :
 						
@@ -77,14 +87,19 @@ system.state := next_state;
 							RETURN;
 						END_IF
 						
-						AutomaticOperation(
-						 Start	:= User.Input.start,
-						 Stop	:= User.Input.stop
-						);
+						IF HW_DI_ECU_RUNNING THEN (* Kanal entsprechend benennen! *)
+							AutomaticOperation.Enable := TRUE;
+						ELSE
+							AutomaticOperation.Enable := FALSE;
+							 WARNING_ARRAY[2] := TRUE; (* Warnung: ECU nicht an! Kein Betrieb möglich *)
+						END_IF
+						
+						IF User.Input.reset_Error_byUser THEN
+							AutomaticOperation.Reset := TRUE;
+						END_IF
 						
 						IF User.Input.StandbyModeReq THEN
-							next_state := SYS_STANDBY;
-							RETURN;
+							AutomaticOperation.Stop := TRUE;
 						END_IF
 		
 		SYS_MANUAL :
@@ -103,6 +118,31 @@ system.state := next_state;
 		next_state := SYS_ERROR; (* Other States not allowed!!! *)
 		system.status_msg := 'ERROR: State Request NOT allowed!';
 	END_CASE
+	
+AutomaticOperation(
+ IO_User := User,
+ IO_Thermostat := Thermostat,
+ IO_OilConditioning := OilConditioning,
+ IO_FuelSupply := FuelSupply,
+ IO_GlobalOP_List := OP_List
+);
+fbThermostat(fbIO_Thermostat := Thermostat);
+fbOilConditionin(fbIO_OilConditioning := OilConditioning);
+fbFuelSupply(
+ 	fbIO_FuelSupply := FuelSupply,
+ 	SupplyFuelPumpPIDsettings := User.Settings.SupplyFuelPumpPIDsettings,
+ 	SupplyFuelPump_pressure_tolerance := User.Settings.SupplyFuelPump_pressure_tolerance
+);
+
+CASE AutomaticOperation.State OF
+	
+	OP_PREP, OP_EXECUTE: next_state := SYS_AUTO_BUSY;
+
+	OP_FINISHED: next_state := SYS_STANDBY;
+	
+	OP_ERROR_SHUTDOWN, OP_ERROR: WARNING_ARRAY[1] := TRUE; (* Warnung: Automatic Programm in ERROR Condition *)
+
+END_CASE
 
 (* Global User Input Reset *)
 User.Input.reset_Error_byUser := FALSE;
@@ -156,6 +196,18 @@ ACTION ACT_READ_SafetyStatus (* Wird direkt im Safetyprogramm gemappt *)
 		END_FOR
 
 				
+	END_ACTION
+	
+	ACTION ACT_ResetWarnings
+	
+	FOR w := 1 TO 30 DO
+		WARNING_ARRAY[w] := FALSE;
+	END_FOR
+	
+	END_ACTION
+	
+	ACTION ACT_CAN_COMMUNICATION
+		;
 	END_ACTION
 
 END_ACTIONS

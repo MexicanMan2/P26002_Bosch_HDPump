@@ -71,7 +71,7 @@ bitOffset := StartBit MOD 8;
 IF BitLength >= 32 THEN
     mask := 16#FFFFFFFF;
 ELSE
-    mask := SHR(16#FFFFFFFF, 32 - BitLength);
+    mask := SHR(DWORD#16#FFFFFFFF, 32 - BitLength);
 END_IF;
 
 (* ============================================================================ *)
@@ -119,9 +119,9 @@ IF bWrite THEN
 
             IF targetByte <= 7 THEN
                 IF bitVal THEN
-                    Data[targetByte] := Data[targetByte] OR DWORD_TO_BYTE(SHL(16#1, targetBit));
+                    Data[targetByte] := Data[targetByte] OR DWORD_TO_BYTE(SHL(DWORD#16#1, targetBit));
                 ELSE
-                    Data[targetByte] := Data[targetByte] AND NOT DWORD_TO_BYTE(SHL(16#1, targetBit));
+                    Data[targetByte] := Data[targetByte] AND NOT DWORD_TO_BYTE(SHL(DWORD#16#1, targetBit));
                 END_IF;
             END_IF;
         END_FOR;
@@ -176,7 +176,7 @@ RawValue := DWORD_TO_UDINT(dwRaw);
 (* 4. Vorzeichen-Erweiterung (Sign Extension) und Skalierung                    *)
 (* ============================================================================ *)
 IF IsSigned THEN
-    signBit := SHL(16#1, BitLength - 1);
+    signBit := SHL(DWORD#16#1, BitLength - 1);
     IF (dwRaw AND signBit) <> 16#0 THEN
         (* Negative Zahl: Führende Einsen auffüllen *)
         dwRaw := dwRaw OR (NOT mask);

@@ -1,0 +1,23 @@
+TYPE OilConditioning :
+	STRUCT
+		start:	BOOL;
+		stop:	BOOL;
+		enable: BOOL;
+		
+		setOil_temperature: REAL;
+		setOil_pressure: REAL;
+		
+		actualOil_temperature: REAL;
+		actualOil_pressure: REAL;
+		
+		temperature_tolerance      : REAL := 2;
+		pressure_tolerance         : REAL := 0.5;
+		
+		temperature_SVaccepted           : BOOL := FALSE;
+		temperature_SVreached            : BOOL := FALSE;
+		
+		pressure_SVaccepted           : BOOL := FALSE;
+		pressure_SVreached            : BOOL := FALSE;
+		
+	END_STRUCT
+END_TYPE
